@@ -2,7 +2,7 @@
 if (!defined('ROOT_PATH')) {
     die('Can not access');
 }
-$titlePage = "BTEC - Create New Courses";
+$titlePage = "BTEC - Edit Courses";
 $errorUpdate = $_SESSION['error_update_course'] ?? null;
 ?>
 <?php require 'view/partials/header_view.php'; ?>
@@ -11,7 +11,7 @@ $errorUpdate = $_SESSION['error_update_course'] ?? null;
     <h3 class="page-title">
         <span class="page-title-icon bg-gradient-primary text-white me-2">
             <i class="mdi mdi-home"></i>
-        </span> Create New Courses
+        </span> Edit Courses
     </h3>
     <nav aria-label="breadcrumb">
         <ul class="breadcrumb">
@@ -26,7 +26,7 @@ $errorUpdate = $_SESSION['error_update_course'] ?? null;
         <a class="btn btn-primary btn-lg" href="index.php?c=course">Back To List</a>
         <div class="card mt-3">
             <div class="card-header bg-primary">
-                <h5 class="card-title text-white mb-0">Create Courses</h5>
+                <h5 class="card-title text-white mb-0">Edit Courses</h5>
             </div>
             <div class="card-body">
                 <form method="post" action="index.php?c=course&m=handle-edit&id=<?= $info['id']; ?>">

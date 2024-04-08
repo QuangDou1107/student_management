@@ -180,9 +180,11 @@ function handleAdd()
         $logo=null;
         $_SESSION['error_add_department']['logo'] = null;
         if (!empty($_FILES['logo']['tmp_name'])) {
-            $logo = uploadFile($_FILES['logo'], 'public/uploads/images/', ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'], 5 * 1024 * 1024);
+            $logo = uploadFile($_FILES['logo'], 'public/uploads/images/', 
+            ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'], 5 * 1024 * 1024);
             if (empty($logo)) {
-                $_SESSION['error_add_department']['logo'] = 'File only accept extension is .png, .jpg, .jpeg, .gif and file <= 5Mb';
+                $_SESSION['error_add_department']['logo'] = 
+                'File only accept extension is .png, .jpg, .jpeg, .gif and file <= 5Mb';
             } else {
                 $_SESSION['error_add_department']['logo'] = null;
             }
@@ -239,10 +241,10 @@ function index()
 
     $totalItems=getAllDataDepartments($keyword);// goi ten ham trong model
     $totalItems = count($totalItems);
-    $panigate=pagigate($linkPage, $totalItems, $page, $keyword, 10);
+    $panigate=pagigate($linkPage, $totalItems, $page, $keyword, 2);
     $start = $panigate['start']??0;
     
-    $departments = getAllDataDepartmentByPage($keyword, $start, 10);
+    $departments = getAllDataDepartmentByPage($keyword, $start, 2);
     $htmlPage=$panigate['pagination']??null;
     require 'view/department/index_view.php';
     // xong vao view

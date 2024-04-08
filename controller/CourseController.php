@@ -136,7 +136,11 @@ function handleDelete()
         header("Location:index.php?c=course&state_del=failure");
     }
 }
-
+function Add()
+{
+    $departments = getAllDataDepartments(); // goi tu  department model
+    require 'view/course/add_view.php';
+}
 function handleAdd()
 {
     if (isset($_POST['btnSave'])) {
@@ -190,11 +194,7 @@ function handleAdd()
     }
 }
 
-function Add()
-{
-    $departments = getAllDataDepartments(); // goi tu  department model
-    require 'view/course/add_view.php';
-}
+
 
 function index()
 {

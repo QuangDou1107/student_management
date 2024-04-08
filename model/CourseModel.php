@@ -12,7 +12,9 @@
     ){
         $checkUpdate=false;
         $db = connectionDb();
-        $sql="UPDATE `courses` SET `name` = :nameCourse, `slug` = :slug, `department_id`=:departmentId ,`status` = :statusCourse, `updated_at` = :updated_at WHERE `id` = :id AND `deleted_at` IS NULL";
+        $sql="UPDATE `courses` SET `name` = :nameCourse, `slug` = :slug, 
+        `department_id`=:departmentId ,`status` = :statusCourse, `updated_at` = :updated_at 
+        WHERE `id` = :id AND `deleted_at` IS NULL";
         $updateTime = date('Y-m-d H:i:s');
         $stmt =$db->prepare($sql);
         if($stmt){
@@ -89,7 +91,8 @@
     
     function insertCourse($name, $slug, $departmentId, $status){
         //viet cau lenh insert vao bang department
-        $sqlInsert = "INSERT INTO courses(`name`, `slug`, `department_id`, `status`, `created_at`) VALUES (:nameCourse, :slug, :departmentId, :statusCourse, :createdAt )";
+        $sqlInsert = "INSERT INTO courses(`name`, `slug`, `department_id`, `status`, `created_at`) 
+        VALUES (:nameCourse, :slug, :departmentId, :statusCourse, :createdAt )";
         $checkInsert = false;
             $db = connectionDb();
             $stmt =$db->prepare($sqlInsert);

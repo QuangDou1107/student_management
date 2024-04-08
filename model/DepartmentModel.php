@@ -12,7 +12,9 @@ function updateDepartmentById(
 ){
     $checkUpdate=false;
     $db = connectionDb();
-    $sql="UPDATE `departments` SET `name` = :nameDepartment, `slug` = :slug, `leader` = :leader, `date_beginning` = :beginDate, `status` = :statusDepartment, `logo` = :logo, `updated_at` = :updated_at WHERE `id` = :id AND `deleted_at` IS NULL";
+    $sql="UPDATE `departments` SET `name` = :nameDepartment, `slug` = :slug,
+     `leader` = :leader, `date_beginning` = :beginDate, `status` = :statusDepartment, 
+    `logo` = :logo, `updated_at` = :updated_at WHERE `id` = :id AND `deleted_at` IS NULL";
     $updateTime = date('Y-m-d H:i:s');
     $stmt =$db->prepare($sql);
     if($stmt){
@@ -87,7 +89,8 @@ function getAllDataDepartmentByPage($keyword=null, $start =0, $limit = 2){
 }
 function insertDepartment($name, $slug, $leader, $status, $logo, $begindate){
     //viet cau lenh insert vao bang department
-    $sqlInsert = "INSERT INTO departments(`name`, `slug`, `leader`, `date_beginning`, `status`, `logo`, `created_at`) VALUES (:nameDepartment, :slug, :leader, :beginDate, :statusDepartment, :logo, :createdAt )";
+    $sqlInsert = "INSERT INTO departments(`name`, `slug`, `leader`, `date_beginning`, `status`, `logo`, `created_at`) 
+    VALUES (:nameDepartment, :slug, :leader, :beginDate, :statusDepartment, :logo, :createdAt )";
         $checkInsert = false;
         $db = connectionDb();
         $stmt =$db->prepare($sqlInsert);
